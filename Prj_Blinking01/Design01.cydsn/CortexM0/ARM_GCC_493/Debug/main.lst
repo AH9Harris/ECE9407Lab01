@@ -1,0 +1,820 @@
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.fpu softvfp
+   3              		.eabi_attribute 20, 1
+   4              		.eabi_attribute 21, 1
+   5              		.eabi_attribute 23, 3
+   6              		.eabi_attribute 24, 1
+   7              		.eabi_attribute 25, 1
+   8              		.eabi_attribute 26, 1
+   9              		.eabi_attribute 30, 1
+  10              		.eabi_attribute 34, 0
+  11              		.eabi_attribute 18, 4
+  12              		.code	16
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.main,"ax",%progbits
+  18              		.align	2
+  19              		.global	main
+  20              		.code	16
+  21              		.thumb_func
+  22              		.type	main, %function
+  23              	main:
+  24              	.LFB37:
+  25              		.file 1 ".\\main.c"
+   1:.\main.c      **** /* ========================================
+   2:.\main.c      ****  *
+   3:.\main.c      ****  * Copyright YOUR COMPANY, THE YEAR
+   4:.\main.c      ****  * All Rights Reserved
+   5:.\main.c      ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:.\main.c      ****  *
+   7:.\main.c      ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:.\main.c      ****  * WHICH IS THE PROPERTY OF your company.
+   9:.\main.c      ****  *
+  10:.\main.c      ****  * ========================================
+  11:.\main.c      **** */
+  12:.\main.c      **** #include <project.h>
+  13:.\main.c      **** 
+  14:.\main.c      **** int main()
+  15:.\main.c      **** {
+  26              		.loc 1 15 0
+  27              		.cfi_startproc
+  28 0000 10B5     		push	{r4, lr}
+  29              		.cfi_def_cfa_offset 8
+  30              		.cfi_offset 4, -8
+  31              		.cfi_offset 14, -4
+  16:.\main.c      ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  32              		.loc 1 16 0
+  33              	@ 16 ".\main.c" 1
+  34 0002 62B6     		CPSIE   i
+  35              	@ 0 "" 2
+  36              		.code	16
+  37              	.L2:
+  17:.\main.c      ****      
+  18:.\main.c      ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  19:.\main.c      ****         
+  20:.\main.c      ****     for(;;)
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 2
+
+
+  21:.\main.c      ****     {
+  22:.\main.c      ****         /* 2016.06.03 An He Lab01*/
+  23:.\main.c      **** 
+  24:.\main.c      ****         Pin_LED_Red_Write(~Pin_LED_Red_Read());  // Pin_LED_Red is the name of pin
+  38              		.loc 1 24 0 discriminator 1
+  39 0004 FFF7FEFF 		bl	Pin_LED_Red_Read
+  40              	.LVL0:
+  41 0008 C043     		mvn	r0, r0
+  42 000a C0B2     		uxtb	r0, r0
+  43 000c FFF7FEFF 		bl	Pin_LED_Red_Write
+  44              	.LVL1:
+  25:.\main.c      ****         CyDelay(1000);
+  45              		.loc 1 25 0 discriminator 1
+  46 0010 FA24     		mov	r4, #250
+  47 0012 A400     		lsl	r4, r4, #2
+  48 0014 201C     		mov	r0, r4
+  49 0016 FFF7FEFF 		bl	CyDelay
+  50              	.LVL2:
+  26:.\main.c      **** 
+  27:.\main.c      ****         Pin_LED_Blue_Write(~Pin_LED_Blue_Read());  // Pin_LED_Blue is the name of pin
+  51              		.loc 1 27 0 discriminator 1
+  52 001a FFF7FEFF 		bl	Pin_LED_Blue_Read
+  53              	.LVL3:
+  54 001e C043     		mvn	r0, r0
+  55 0020 C0B2     		uxtb	r0, r0
+  56 0022 FFF7FEFF 		bl	Pin_LED_Blue_Write
+  57              	.LVL4:
+  28:.\main.c      ****         CyDelay(1000);
+  58              		.loc 1 28 0 discriminator 1
+  59 0026 201C     		mov	r0, r4
+  60 0028 FFF7FEFF 		bl	CyDelay
+  61              	.LVL5:
+  29:.\main.c      ****         
+  30:.\main.c      ****         Pin_LED_Green_Write(~Pin_LED_Green_Read());  // Pin_LED_Green is the name of pin
+  62              		.loc 1 30 0 discriminator 1
+  63 002c FFF7FEFF 		bl	Pin_LED_Green_Read
+  64              	.LVL6:
+  65 0030 C043     		mvn	r0, r0
+  66 0032 C0B2     		uxtb	r0, r0
+  67 0034 FFF7FEFF 		bl	Pin_LED_Green_Write
+  68              	.LVL7:
+  31:.\main.c      ****         CyDelay(1000);
+  69              		.loc 1 31 0 discriminator 1
+  70 0038 201C     		mov	r0, r4
+  71 003a FFF7FEFF 		bl	CyDelay
+  72              	.LVL8:
+  32:.\main.c      ****         
+  33:.\main.c      ****         // Show White
+  34:.\main.c      ****         Pin_LED_Red_Write(255);  
+  73              		.loc 1 34 0 discriminator 1
+  74 003e FF20     		mov	r0, #255
+  75 0040 FFF7FEFF 		bl	Pin_LED_Red_Write
+  76              	.LVL9:
+  35:.\main.c      ****         Pin_LED_Green_Write(255);  
+  77              		.loc 1 35 0 discriminator 1
+  78 0044 FF20     		mov	r0, #255
+  79 0046 FFF7FEFF 		bl	Pin_LED_Green_Write
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 3
+
+
+  80              	.LVL10:
+  36:.\main.c      ****         Pin_LED_Blue_Write(255);  
+  81              		.loc 1 36 0 discriminator 1
+  82 004a FF20     		mov	r0, #255
+  83 004c FFF7FEFF 		bl	Pin_LED_Blue_Write
+  84              	.LVL11:
+  37:.\main.c      ****         CyDelay(1000);
+  85              		.loc 1 37 0 discriminator 1
+  86 0050 201C     		mov	r0, r4
+  87 0052 FFF7FEFF 		bl	CyDelay
+  88              	.LVL12:
+  38:.\main.c      ****         // Close LED
+  39:.\main.c      ****         Pin_LED_Red_Write(0);  
+  89              		.loc 1 39 0 discriminator 1
+  90 0056 0020     		mov	r0, #0
+  91 0058 FFF7FEFF 		bl	Pin_LED_Red_Write
+  92              	.LVL13:
+  40:.\main.c      ****         Pin_LED_Green_Write(0);  
+  93              		.loc 1 40 0 discriminator 1
+  94 005c 0020     		mov	r0, #0
+  95 005e FFF7FEFF 		bl	Pin_LED_Green_Write
+  96              	.LVL14:
+  41:.\main.c      ****         Pin_LED_Blue_Write(0); 
+  97              		.loc 1 41 0 discriminator 1
+  98 0062 0020     		mov	r0, #0
+  99 0064 FFF7FEFF 		bl	Pin_LED_Blue_Write
+ 100              	.LVL15:
+  42:.\main.c      ****         CyDelay(1000);
+ 101              		.loc 1 42 0 discriminator 1
+ 102 0068 201C     		mov	r0, r4
+ 103 006a FFF7FEFF 		bl	CyDelay
+ 104              	.LVL16:
+  43:.\main.c      ****         //
+  44:.\main.c      ****     }
+ 105              		.loc 1 44 0 discriminator 1
+ 106 006e C9E7     		b	.L2
+ 107              		.cfi_endproc
+ 108              	.LFE37:
+ 109              		.size	main, .-main
+ 110              		.text
+ 111              	.Letext0:
+ 112              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 113              		.file 3 "Generated_Source\\PSoC4/Pin_LED_Red.h"
+ 114              		.file 4 "Generated_Source\\PSoC4/CyLib.h"
+ 115              		.file 5 "Generated_Source\\PSoC4/Pin_LED_Blue.h"
+ 116              		.file 6 "Generated_Source\\PSoC4/Pin_LED_Green.h"
+ 117              		.section	.debug_info,"",%progbits
+ 118              	.Ldebug_info0:
+ 119 0000 22020000 		.4byte	0x222
+ 120 0004 0400     		.2byte	0x4
+ 121 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 122 000a 04       		.byte	0x4
+ 123 000b 01       		.uleb128 0x1
+ 124 000c 4C010000 		.4byte	.LASF21
+ 125 0010 01       		.byte	0x1
+ 126 0011 DA010000 		.4byte	.LASF22
+ 127 0015 B9000000 		.4byte	.LASF23
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 4
+
+
+ 128 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 129 001d 00000000 		.4byte	0
+ 130 0021 00000000 		.4byte	.Ldebug_line0
+ 131 0025 02       		.uleb128 0x2
+ 132 0026 01       		.byte	0x1
+ 133 0027 06       		.byte	0x6
+ 134 0028 2D010000 		.4byte	.LASF0
+ 135 002c 02       		.uleb128 0x2
+ 136 002d 01       		.byte	0x1
+ 137 002e 08       		.byte	0x8
+ 138 002f 89000000 		.4byte	.LASF1
+ 139 0033 02       		.uleb128 0x2
+ 140 0034 02       		.byte	0x2
+ 141 0035 05       		.byte	0x5
+ 142 0036 09010000 		.4byte	.LASF2
+ 143 003a 02       		.uleb128 0x2
+ 144 003b 02       		.byte	0x2
+ 145 003c 07       		.byte	0x7
+ 146 003d 1A010000 		.4byte	.LASF3
+ 147 0041 02       		.uleb128 0x2
+ 148 0042 04       		.byte	0x4
+ 149 0043 05       		.byte	0x5
+ 150 0044 B0000000 		.4byte	.LASF4
+ 151 0048 02       		.uleb128 0x2
+ 152 0049 04       		.byte	0x4
+ 153 004a 07       		.byte	0x7
+ 154 004b 47000000 		.4byte	.LASF5
+ 155 004f 02       		.uleb128 0x2
+ 156 0050 08       		.byte	0x8
+ 157 0051 05       		.byte	0x5
+ 158 0052 00000000 		.4byte	.LASF6
+ 159 0056 02       		.uleb128 0x2
+ 160 0057 08       		.byte	0x8
+ 161 0058 07       		.byte	0x7
+ 162 0059 59000000 		.4byte	.LASF7
+ 163 005d 03       		.uleb128 0x3
+ 164 005e 04       		.byte	0x4
+ 165 005f 05       		.byte	0x5
+ 166 0060 696E7400 		.ascii	"int\000"
+ 167 0064 02       		.uleb128 0x2
+ 168 0065 04       		.byte	0x4
+ 169 0066 07       		.byte	0x7
+ 170 0067 15000000 		.4byte	.LASF8
+ 171 006b 04       		.uleb128 0x4
+ 172 006c 41000000 		.4byte	.LASF9
+ 173 0070 02       		.byte	0x2
+ 174 0071 9801     		.2byte	0x198
+ 175 0073 2C000000 		.4byte	0x2c
+ 176 0077 04       		.uleb128 0x4
+ 177 0078 0E000000 		.4byte	.LASF10
+ 178 007c 02       		.byte	0x2
+ 179 007d 9A01     		.2byte	0x19a
+ 180 007f 48000000 		.4byte	0x48
+ 181 0083 02       		.uleb128 0x2
+ 182 0084 04       		.byte	0x4
+ 183 0085 04       		.byte	0x4
+ 184 0086 83000000 		.4byte	.LASF11
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 5
+
+
+ 185 008a 02       		.uleb128 0x2
+ 186 008b 08       		.byte	0x8
+ 187 008c 04       		.byte	0x4
+ 188 008d 13010000 		.4byte	.LASF12
+ 189 0091 02       		.uleb128 0x2
+ 190 0092 01       		.byte	0x1
+ 191 0093 08       		.byte	0x8
+ 192 0094 97000000 		.4byte	.LASF13
+ 193 0098 02       		.uleb128 0x2
+ 194 0099 04       		.byte	0x4
+ 195 009a 07       		.byte	0x7
+ 196 009b F4010000 		.4byte	.LASF14
+ 197 009f 05       		.uleb128 0x5
+ 198 00a0 34000000 		.4byte	.LASF24
+ 199 00a4 01       		.byte	0x1
+ 200 00a5 0E       		.byte	0xe
+ 201 00a6 5D000000 		.4byte	0x5d
+ 202 00aa 00000000 		.4byte	.LFB37
+ 203 00ae 70000000 		.4byte	.LFE37-.LFB37
+ 204 00b2 01       		.uleb128 0x1
+ 205 00b3 9C       		.byte	0x9c
+ 206 00b4 C4010000 		.4byte	0x1c4
+ 207 00b8 06       		.uleb128 0x6
+ 208 00b9 08000000 		.4byte	.LVL0
+ 209 00bd C4010000 		.4byte	0x1c4
+ 210 00c1 06       		.uleb128 0x6
+ 211 00c2 10000000 		.4byte	.LVL1
+ 212 00c6 CF010000 		.4byte	0x1cf
+ 213 00ca 07       		.uleb128 0x7
+ 214 00cb 1A000000 		.4byte	.LVL2
+ 215 00cf E0010000 		.4byte	0x1e0
+ 216 00d3 DE000000 		.4byte	0xde
+ 217 00d7 08       		.uleb128 0x8
+ 218 00d8 01       		.uleb128 0x1
+ 219 00d9 50       		.byte	0x50
+ 220 00da 02       		.uleb128 0x2
+ 221 00db 74       		.byte	0x74
+ 222 00dc 00       		.sleb128 0
+ 223 00dd 00       		.byte	0
+ 224 00de 06       		.uleb128 0x6
+ 225 00df 1E000000 		.4byte	.LVL3
+ 226 00e3 F1010000 		.4byte	0x1f1
+ 227 00e7 06       		.uleb128 0x6
+ 228 00e8 26000000 		.4byte	.LVL4
+ 229 00ec FC010000 		.4byte	0x1fc
+ 230 00f0 07       		.uleb128 0x7
+ 231 00f1 2C000000 		.4byte	.LVL5
+ 232 00f5 E0010000 		.4byte	0x1e0
+ 233 00f9 04010000 		.4byte	0x104
+ 234 00fd 08       		.uleb128 0x8
+ 235 00fe 01       		.uleb128 0x1
+ 236 00ff 50       		.byte	0x50
+ 237 0100 02       		.uleb128 0x2
+ 238 0101 74       		.byte	0x74
+ 239 0102 00       		.sleb128 0
+ 240 0103 00       		.byte	0
+ 241 0104 06       		.uleb128 0x6
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 6
+
+
+ 242 0105 30000000 		.4byte	.LVL6
+ 243 0109 0D020000 		.4byte	0x20d
+ 244 010d 06       		.uleb128 0x6
+ 245 010e 38000000 		.4byte	.LVL7
+ 246 0112 18020000 		.4byte	0x218
+ 247 0116 07       		.uleb128 0x7
+ 248 0117 3E000000 		.4byte	.LVL8
+ 249 011b E0010000 		.4byte	0x1e0
+ 250 011f 2A010000 		.4byte	0x12a
+ 251 0123 08       		.uleb128 0x8
+ 252 0124 01       		.uleb128 0x1
+ 253 0125 50       		.byte	0x50
+ 254 0126 02       		.uleb128 0x2
+ 255 0127 74       		.byte	0x74
+ 256 0128 00       		.sleb128 0
+ 257 0129 00       		.byte	0
+ 258 012a 07       		.uleb128 0x7
+ 259 012b 44000000 		.4byte	.LVL9
+ 260 012f CF010000 		.4byte	0x1cf
+ 261 0133 3E010000 		.4byte	0x13e
+ 262 0137 08       		.uleb128 0x8
+ 263 0138 01       		.uleb128 0x1
+ 264 0139 50       		.byte	0x50
+ 265 013a 02       		.uleb128 0x2
+ 266 013b 09       		.byte	0x9
+ 267 013c FF       		.byte	0xff
+ 268 013d 00       		.byte	0
+ 269 013e 07       		.uleb128 0x7
+ 270 013f 4A000000 		.4byte	.LVL10
+ 271 0143 18020000 		.4byte	0x218
+ 272 0147 52010000 		.4byte	0x152
+ 273 014b 08       		.uleb128 0x8
+ 274 014c 01       		.uleb128 0x1
+ 275 014d 50       		.byte	0x50
+ 276 014e 02       		.uleb128 0x2
+ 277 014f 09       		.byte	0x9
+ 278 0150 FF       		.byte	0xff
+ 279 0151 00       		.byte	0
+ 280 0152 07       		.uleb128 0x7
+ 281 0153 50000000 		.4byte	.LVL11
+ 282 0157 FC010000 		.4byte	0x1fc
+ 283 015b 66010000 		.4byte	0x166
+ 284 015f 08       		.uleb128 0x8
+ 285 0160 01       		.uleb128 0x1
+ 286 0161 50       		.byte	0x50
+ 287 0162 02       		.uleb128 0x2
+ 288 0163 09       		.byte	0x9
+ 289 0164 FF       		.byte	0xff
+ 290 0165 00       		.byte	0
+ 291 0166 07       		.uleb128 0x7
+ 292 0167 56000000 		.4byte	.LVL12
+ 293 016b E0010000 		.4byte	0x1e0
+ 294 016f 7A010000 		.4byte	0x17a
+ 295 0173 08       		.uleb128 0x8
+ 296 0174 01       		.uleb128 0x1
+ 297 0175 50       		.byte	0x50
+ 298 0176 02       		.uleb128 0x2
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 7
+
+
+ 299 0177 74       		.byte	0x74
+ 300 0178 00       		.sleb128 0
+ 301 0179 00       		.byte	0
+ 302 017a 07       		.uleb128 0x7
+ 303 017b 5C000000 		.4byte	.LVL13
+ 304 017f CF010000 		.4byte	0x1cf
+ 305 0183 8D010000 		.4byte	0x18d
+ 306 0187 08       		.uleb128 0x8
+ 307 0188 01       		.uleb128 0x1
+ 308 0189 50       		.byte	0x50
+ 309 018a 01       		.uleb128 0x1
+ 310 018b 30       		.byte	0x30
+ 311 018c 00       		.byte	0
+ 312 018d 07       		.uleb128 0x7
+ 313 018e 62000000 		.4byte	.LVL14
+ 314 0192 18020000 		.4byte	0x218
+ 315 0196 A0010000 		.4byte	0x1a0
+ 316 019a 08       		.uleb128 0x8
+ 317 019b 01       		.uleb128 0x1
+ 318 019c 50       		.byte	0x50
+ 319 019d 01       		.uleb128 0x1
+ 320 019e 30       		.byte	0x30
+ 321 019f 00       		.byte	0
+ 322 01a0 07       		.uleb128 0x7
+ 323 01a1 68000000 		.4byte	.LVL15
+ 324 01a5 FC010000 		.4byte	0x1fc
+ 325 01a9 B3010000 		.4byte	0x1b3
+ 326 01ad 08       		.uleb128 0x8
+ 327 01ae 01       		.uleb128 0x1
+ 328 01af 50       		.byte	0x50
+ 329 01b0 01       		.uleb128 0x1
+ 330 01b1 30       		.byte	0x30
+ 331 01b2 00       		.byte	0
+ 332 01b3 09       		.uleb128 0x9
+ 333 01b4 6E000000 		.4byte	.LVL16
+ 334 01b8 E0010000 		.4byte	0x1e0
+ 335 01bc 08       		.uleb128 0x8
+ 336 01bd 01       		.uleb128 0x1
+ 337 01be 50       		.byte	0x50
+ 338 01bf 02       		.uleb128 0x2
+ 339 01c0 74       		.byte	0x74
+ 340 01c1 00       		.sleb128 0
+ 341 01c2 00       		.byte	0
+ 342 01c3 00       		.byte	0
+ 343 01c4 0A       		.uleb128 0xa
+ 344 01c5 E3010000 		.4byte	.LASF17
+ 345 01c9 03       		.byte	0x3
+ 346 01ca 32       		.byte	0x32
+ 347 01cb 6B000000 		.4byte	0x6b
+ 348 01cf 0B       		.uleb128 0xb
+ 349 01d0 FD010000 		.4byte	.LASF15
+ 350 01d4 03       		.byte	0x3
+ 351 01d5 33       		.byte	0x33
+ 352 01d6 E0010000 		.4byte	0x1e0
+ 353 01da 0C       		.uleb128 0xc
+ 354 01db 6B000000 		.4byte	0x6b
+ 355 01df 00       		.byte	0
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 8
+
+
+ 356 01e0 0B       		.uleb128 0xb
+ 357 01e1 39000000 		.4byte	.LASF16
+ 358 01e5 04       		.byte	0x4
+ 359 01e6 D7       		.byte	0xd7
+ 360 01e7 F1010000 		.4byte	0x1f1
+ 361 01eb 0C       		.uleb128 0xc
+ 362 01ec 77000000 		.4byte	0x77
+ 363 01f0 00       		.byte	0
+ 364 01f1 0A       		.uleb128 0xa
+ 365 01f2 22000000 		.4byte	.LASF18
+ 366 01f6 05       		.byte	0x5
+ 367 01f7 32       		.byte	0x32
+ 368 01f8 6B000000 		.4byte	0x6b
+ 369 01fc 0B       		.uleb128 0xb
+ 370 01fd 70000000 		.4byte	.LASF19
+ 371 0201 05       		.byte	0x5
+ 372 0202 33       		.byte	0x33
+ 373 0203 0D020000 		.4byte	0x20d
+ 374 0207 0C       		.uleb128 0xc
+ 375 0208 6B000000 		.4byte	0x6b
+ 376 020c 00       		.byte	0
+ 377 020d 0A       		.uleb128 0xa
+ 378 020e 39010000 		.4byte	.LASF20
+ 379 0212 06       		.byte	0x6
+ 380 0213 32       		.byte	0x32
+ 381 0214 6B000000 		.4byte	0x6b
+ 382 0218 0D       		.uleb128 0xd
+ 383 0219 9C000000 		.4byte	.LASF25
+ 384 021d 06       		.byte	0x6
+ 385 021e 33       		.byte	0x33
+ 386 021f 0C       		.uleb128 0xc
+ 387 0220 6B000000 		.4byte	0x6b
+ 388 0224 00       		.byte	0
+ 389 0225 00       		.byte	0
+ 390              		.section	.debug_abbrev,"",%progbits
+ 391              	.Ldebug_abbrev0:
+ 392 0000 01       		.uleb128 0x1
+ 393 0001 11       		.uleb128 0x11
+ 394 0002 01       		.byte	0x1
+ 395 0003 25       		.uleb128 0x25
+ 396 0004 0E       		.uleb128 0xe
+ 397 0005 13       		.uleb128 0x13
+ 398 0006 0B       		.uleb128 0xb
+ 399 0007 03       		.uleb128 0x3
+ 400 0008 0E       		.uleb128 0xe
+ 401 0009 1B       		.uleb128 0x1b
+ 402 000a 0E       		.uleb128 0xe
+ 403 000b 55       		.uleb128 0x55
+ 404 000c 17       		.uleb128 0x17
+ 405 000d 11       		.uleb128 0x11
+ 406 000e 01       		.uleb128 0x1
+ 407 000f 10       		.uleb128 0x10
+ 408 0010 17       		.uleb128 0x17
+ 409 0011 00       		.byte	0
+ 410 0012 00       		.byte	0
+ 411 0013 02       		.uleb128 0x2
+ 412 0014 24       		.uleb128 0x24
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 9
+
+
+ 413 0015 00       		.byte	0
+ 414 0016 0B       		.uleb128 0xb
+ 415 0017 0B       		.uleb128 0xb
+ 416 0018 3E       		.uleb128 0x3e
+ 417 0019 0B       		.uleb128 0xb
+ 418 001a 03       		.uleb128 0x3
+ 419 001b 0E       		.uleb128 0xe
+ 420 001c 00       		.byte	0
+ 421 001d 00       		.byte	0
+ 422 001e 03       		.uleb128 0x3
+ 423 001f 24       		.uleb128 0x24
+ 424 0020 00       		.byte	0
+ 425 0021 0B       		.uleb128 0xb
+ 426 0022 0B       		.uleb128 0xb
+ 427 0023 3E       		.uleb128 0x3e
+ 428 0024 0B       		.uleb128 0xb
+ 429 0025 03       		.uleb128 0x3
+ 430 0026 08       		.uleb128 0x8
+ 431 0027 00       		.byte	0
+ 432 0028 00       		.byte	0
+ 433 0029 04       		.uleb128 0x4
+ 434 002a 16       		.uleb128 0x16
+ 435 002b 00       		.byte	0
+ 436 002c 03       		.uleb128 0x3
+ 437 002d 0E       		.uleb128 0xe
+ 438 002e 3A       		.uleb128 0x3a
+ 439 002f 0B       		.uleb128 0xb
+ 440 0030 3B       		.uleb128 0x3b
+ 441 0031 05       		.uleb128 0x5
+ 442 0032 49       		.uleb128 0x49
+ 443 0033 13       		.uleb128 0x13
+ 444 0034 00       		.byte	0
+ 445 0035 00       		.byte	0
+ 446 0036 05       		.uleb128 0x5
+ 447 0037 2E       		.uleb128 0x2e
+ 448 0038 01       		.byte	0x1
+ 449 0039 3F       		.uleb128 0x3f
+ 450 003a 19       		.uleb128 0x19
+ 451 003b 03       		.uleb128 0x3
+ 452 003c 0E       		.uleb128 0xe
+ 453 003d 3A       		.uleb128 0x3a
+ 454 003e 0B       		.uleb128 0xb
+ 455 003f 3B       		.uleb128 0x3b
+ 456 0040 0B       		.uleb128 0xb
+ 457 0041 49       		.uleb128 0x49
+ 458 0042 13       		.uleb128 0x13
+ 459 0043 11       		.uleb128 0x11
+ 460 0044 01       		.uleb128 0x1
+ 461 0045 12       		.uleb128 0x12
+ 462 0046 06       		.uleb128 0x6
+ 463 0047 40       		.uleb128 0x40
+ 464 0048 18       		.uleb128 0x18
+ 465 0049 9742     		.uleb128 0x2117
+ 466 004b 19       		.uleb128 0x19
+ 467 004c 01       		.uleb128 0x1
+ 468 004d 13       		.uleb128 0x13
+ 469 004e 00       		.byte	0
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 10
+
+
+ 470 004f 00       		.byte	0
+ 471 0050 06       		.uleb128 0x6
+ 472 0051 898201   		.uleb128 0x4109
+ 473 0054 00       		.byte	0
+ 474 0055 11       		.uleb128 0x11
+ 475 0056 01       		.uleb128 0x1
+ 476 0057 31       		.uleb128 0x31
+ 477 0058 13       		.uleb128 0x13
+ 478 0059 00       		.byte	0
+ 479 005a 00       		.byte	0
+ 480 005b 07       		.uleb128 0x7
+ 481 005c 898201   		.uleb128 0x4109
+ 482 005f 01       		.byte	0x1
+ 483 0060 11       		.uleb128 0x11
+ 484 0061 01       		.uleb128 0x1
+ 485 0062 31       		.uleb128 0x31
+ 486 0063 13       		.uleb128 0x13
+ 487 0064 01       		.uleb128 0x1
+ 488 0065 13       		.uleb128 0x13
+ 489 0066 00       		.byte	0
+ 490 0067 00       		.byte	0
+ 491 0068 08       		.uleb128 0x8
+ 492 0069 8A8201   		.uleb128 0x410a
+ 493 006c 00       		.byte	0
+ 494 006d 02       		.uleb128 0x2
+ 495 006e 18       		.uleb128 0x18
+ 496 006f 9142     		.uleb128 0x2111
+ 497 0071 18       		.uleb128 0x18
+ 498 0072 00       		.byte	0
+ 499 0073 00       		.byte	0
+ 500 0074 09       		.uleb128 0x9
+ 501 0075 898201   		.uleb128 0x4109
+ 502 0078 01       		.byte	0x1
+ 503 0079 11       		.uleb128 0x11
+ 504 007a 01       		.uleb128 0x1
+ 505 007b 31       		.uleb128 0x31
+ 506 007c 13       		.uleb128 0x13
+ 507 007d 00       		.byte	0
+ 508 007e 00       		.byte	0
+ 509 007f 0A       		.uleb128 0xa
+ 510 0080 2E       		.uleb128 0x2e
+ 511 0081 00       		.byte	0
+ 512 0082 3F       		.uleb128 0x3f
+ 513 0083 19       		.uleb128 0x19
+ 514 0084 03       		.uleb128 0x3
+ 515 0085 0E       		.uleb128 0xe
+ 516 0086 3A       		.uleb128 0x3a
+ 517 0087 0B       		.uleb128 0xb
+ 518 0088 3B       		.uleb128 0x3b
+ 519 0089 0B       		.uleb128 0xb
+ 520 008a 27       		.uleb128 0x27
+ 521 008b 19       		.uleb128 0x19
+ 522 008c 49       		.uleb128 0x49
+ 523 008d 13       		.uleb128 0x13
+ 524 008e 3C       		.uleb128 0x3c
+ 525 008f 19       		.uleb128 0x19
+ 526 0090 00       		.byte	0
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 11
+
+
+ 527 0091 00       		.byte	0
+ 528 0092 0B       		.uleb128 0xb
+ 529 0093 2E       		.uleb128 0x2e
+ 530 0094 01       		.byte	0x1
+ 531 0095 3F       		.uleb128 0x3f
+ 532 0096 19       		.uleb128 0x19
+ 533 0097 03       		.uleb128 0x3
+ 534 0098 0E       		.uleb128 0xe
+ 535 0099 3A       		.uleb128 0x3a
+ 536 009a 0B       		.uleb128 0xb
+ 537 009b 3B       		.uleb128 0x3b
+ 538 009c 0B       		.uleb128 0xb
+ 539 009d 27       		.uleb128 0x27
+ 540 009e 19       		.uleb128 0x19
+ 541 009f 3C       		.uleb128 0x3c
+ 542 00a0 19       		.uleb128 0x19
+ 543 00a1 01       		.uleb128 0x1
+ 544 00a2 13       		.uleb128 0x13
+ 545 00a3 00       		.byte	0
+ 546 00a4 00       		.byte	0
+ 547 00a5 0C       		.uleb128 0xc
+ 548 00a6 05       		.uleb128 0x5
+ 549 00a7 00       		.byte	0
+ 550 00a8 49       		.uleb128 0x49
+ 551 00a9 13       		.uleb128 0x13
+ 552 00aa 00       		.byte	0
+ 553 00ab 00       		.byte	0
+ 554 00ac 0D       		.uleb128 0xd
+ 555 00ad 2E       		.uleb128 0x2e
+ 556 00ae 01       		.byte	0x1
+ 557 00af 3F       		.uleb128 0x3f
+ 558 00b0 19       		.uleb128 0x19
+ 559 00b1 03       		.uleb128 0x3
+ 560 00b2 0E       		.uleb128 0xe
+ 561 00b3 3A       		.uleb128 0x3a
+ 562 00b4 0B       		.uleb128 0xb
+ 563 00b5 3B       		.uleb128 0x3b
+ 564 00b6 0B       		.uleb128 0xb
+ 565 00b7 27       		.uleb128 0x27
+ 566 00b8 19       		.uleb128 0x19
+ 567 00b9 3C       		.uleb128 0x3c
+ 568 00ba 19       		.uleb128 0x19
+ 569 00bb 00       		.byte	0
+ 570 00bc 00       		.byte	0
+ 571 00bd 00       		.byte	0
+ 572              		.section	.debug_aranges,"",%progbits
+ 573 0000 1C000000 		.4byte	0x1c
+ 574 0004 0200     		.2byte	0x2
+ 575 0006 00000000 		.4byte	.Ldebug_info0
+ 576 000a 04       		.byte	0x4
+ 577 000b 00       		.byte	0
+ 578 000c 0000     		.2byte	0
+ 579 000e 0000     		.2byte	0
+ 580 0010 00000000 		.4byte	.LFB37
+ 581 0014 70000000 		.4byte	.LFE37-.LFB37
+ 582 0018 00000000 		.4byte	0
+ 583 001c 00000000 		.4byte	0
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 12
+
+
+ 584              		.section	.debug_ranges,"",%progbits
+ 585              	.Ldebug_ranges0:
+ 586 0000 00000000 		.4byte	.LFB37
+ 587 0004 70000000 		.4byte	.LFE37
+ 588 0008 00000000 		.4byte	0
+ 589 000c 00000000 		.4byte	0
+ 590              		.section	.debug_line,"",%progbits
+ 591              	.Ldebug_line0:
+ 592 0000 E5000000 		.section	.debug_str,"MS",%progbits,1
+ 592      02008400 
+ 592      00000201 
+ 592      FB0E0D00 
+ 592      01010101 
+ 593              	.LASF6:
+ 594 0000 6C6F6E67 		.ascii	"long long int\000"
+ 594      206C6F6E 
+ 594      6720696E 
+ 594      7400
+ 595              	.LASF10:
+ 596 000e 75696E74 		.ascii	"uint32\000"
+ 596      333200
+ 597              	.LASF8:
+ 598 0015 756E7369 		.ascii	"unsigned int\000"
+ 598      676E6564 
+ 598      20696E74 
+ 598      00
+ 599              	.LASF18:
+ 600 0022 50696E5F 		.ascii	"Pin_LED_Blue_Read\000"
+ 600      4C45445F 
+ 600      426C7565 
+ 600      5F526561 
+ 600      6400
+ 601              	.LASF24:
+ 602 0034 6D61696E 		.ascii	"main\000"
+ 602      00
+ 603              	.LASF16:
+ 604 0039 43794465 		.ascii	"CyDelay\000"
+ 604      6C617900 
+ 605              	.LASF9:
+ 606 0041 75696E74 		.ascii	"uint8\000"
+ 606      3800
+ 607              	.LASF5:
+ 608 0047 6C6F6E67 		.ascii	"long unsigned int\000"
+ 608      20756E73 
+ 608      69676E65 
+ 608      6420696E 
+ 608      7400
+ 609              	.LASF7:
+ 610 0059 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 610      206C6F6E 
+ 610      6720756E 
+ 610      7369676E 
+ 610      65642069 
+ 611              	.LASF19:
+ 612 0070 50696E5F 		.ascii	"Pin_LED_Blue_Write\000"
+ 612      4C45445F 
+ 612      426C7565 
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 13
+
+
+ 612      5F577269 
+ 612      746500
+ 613              	.LASF11:
+ 614 0083 666C6F61 		.ascii	"float\000"
+ 614      7400
+ 615              	.LASF1:
+ 616 0089 756E7369 		.ascii	"unsigned char\000"
+ 616      676E6564 
+ 616      20636861 
+ 616      7200
+ 617              	.LASF13:
+ 618 0097 63686172 		.ascii	"char\000"
+ 618      00
+ 619              	.LASF25:
+ 620 009c 50696E5F 		.ascii	"Pin_LED_Green_Write\000"
+ 620      4C45445F 
+ 620      47726565 
+ 620      6E5F5772 
+ 620      69746500 
+ 621              	.LASF4:
+ 622 00b0 6C6F6E67 		.ascii	"long int\000"
+ 622      20696E74 
+ 622      00
+ 623              	.LASF23:
+ 624 00b9 453A5C44 		.ascii	"E:\\DropboxHA\\Dropbox\\PSoC_CY8CKIT042\\LabHA_BLE\\"
+ 624      726F7062 
+ 624      6F784841 
+ 624      5C44726F 
+ 624      70626F78 
+ 625 00e8 4C616231 		.ascii	"Lab1HA\\Blinking01\\Design01.cydsn\000"
+ 625      48415C42 
+ 625      6C696E6B 
+ 625      696E6730 
+ 625      315C4465 
+ 626              	.LASF2:
+ 627 0109 73686F72 		.ascii	"short int\000"
+ 627      7420696E 
+ 627      7400
+ 628              	.LASF12:
+ 629 0113 646F7562 		.ascii	"double\000"
+ 629      6C6500
+ 630              	.LASF3:
+ 631 011a 73686F72 		.ascii	"short unsigned int\000"
+ 631      7420756E 
+ 631      7369676E 
+ 631      65642069 
+ 631      6E7400
+ 632              	.LASF0:
+ 633 012d 7369676E 		.ascii	"signed char\000"
+ 633      65642063 
+ 633      68617200 
+ 634              	.LASF20:
+ 635 0139 50696E5F 		.ascii	"Pin_LED_Green_Read\000"
+ 635      4C45445F 
+ 635      47726565 
+ 635      6E5F5265 
+ 635      616400
+ARM GAS  Z:\Users\HARRIS~1\AppData\Local\Temp\cc8Agraa.s 			page 14
+
+
+ 636              	.LASF21:
+ 637 014c 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 637      4320342E 
+ 637      392E3320 
+ 637      32303135 
+ 637      30333033 
+ 638 017f 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m0 -mthumb -g -O"
+ 638      20726576 
+ 638      6973696F 
+ 638      6E203232 
+ 638      31323230 
+ 639 01b2 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 639      66756E63 
+ 639      74696F6E 
+ 639      2D736563 
+ 639      74696F6E 
+ 640              	.LASF22:
+ 641 01da 2E5C6D61 		.ascii	".\\main.c\000"
+ 641      696E2E63 
+ 641      00
+ 642              	.LASF17:
+ 643 01e3 50696E5F 		.ascii	"Pin_LED_Red_Read\000"
+ 643      4C45445F 
+ 643      5265645F 
+ 643      52656164 
+ 643      00
+ 644              	.LASF14:
+ 645 01f4 73697A65 		.ascii	"sizetype\000"
+ 645      74797065 
+ 645      00
+ 646              	.LASF15:
+ 647 01fd 50696E5F 		.ascii	"Pin_LED_Red_Write\000"
+ 647      4C45445F 
+ 647      5265645F 
+ 647      57726974 
+ 647      6500
+ 648              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
