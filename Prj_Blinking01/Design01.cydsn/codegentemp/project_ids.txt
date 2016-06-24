@@ -1,0 +1,5 @@
+E:\DropboxHA\Dropbox\PSoC_CY8CKIT042\LabHA_BLE\Lab1HA\Blinking01\Design01.cydsn\Design01.cyprj|65a546de-4a79-4537-ac16-4376653c0e0c
+Z:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|f173fbab-2285-47d5-877a-e965d0679126
+Z:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|d2e37c9f-9144-4f75-9165-55dd041c5bdd
+Z:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|1707eee6-181c-4534-a99d-8ba39b6f21cc
+Z:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6f00a051-1bc4-4e80-af12-b5113e53241f
